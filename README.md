@@ -1,7 +1,5 @@
 # til
 
-[[___TOC___]]
-
 Today I learnt
 
 ## mysql
