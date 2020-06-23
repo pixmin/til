@@ -28,7 +28,7 @@ ngrok http -host-header=rewrite local.domain.net:80
 
 ## salt
 
-To list all minions managed:
+To list all managed minions:
 ```
 salt-run manage.status
 ```
