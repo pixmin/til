@@ -25,3 +25,10 @@ To serve a site from a vagrant using ngrok, from the host:
 ```
 ngrok http -host-header=rewrite local.domain.net:80
 ```
+
+## salt
+
+To list all minions managed:
+```
+salt-run manage.status
+```
