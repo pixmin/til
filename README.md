@@ -32,3 +32,8 @@ To list all managed minions:
 ```
 salt-run manage.status
 ```
+
+Or list accepted keys:
+```
+salt-key -L
+```
