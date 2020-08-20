@@ -93,6 +93,31 @@ To serve a site from a vagrant using ngrok, from the host:
 ngrok http -host-header=rewrite local.domain.net:80
 ```
 
+## PHP / FPM
+
+### Problem with too many requests / connections dropped
+
+```
+tail -f /var/log/php5-fpm.log
+```
+> [18-Aug-2020 15:55:38] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 8 children, there are 6 idle, and 23 total children
+
+Edit `/etc/php5/fpm/pool.d/www.conf`
+```
+pm.max_children = 200
+```
+(was `100`)
+
+```
+service php5-fpm restart
+```
+
+> @Gaëtan si tu as des pbm pour les uploads, tu as deux paramètres à prendre en compte :
+> 1 - est-ce que la sessions fpm n'est pas fermée avant la fin de l'upload (et ça tu pourras pas le changer : l'utilisateur à, de mémoire, 600 secondes pour faire l'upload... ou 300... enfin pas toute sa vie quoi)
+> 2 - est-ce que la connexion tcp ne plante pas à cause de la ligne et de la taille de la data qui transite : et là aussi, tu peux rien y faire
+
+
+
 ## salt
 
 To list all managed minions:
