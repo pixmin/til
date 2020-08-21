@@ -10,6 +10,14 @@ Uncle Bod Martin - https://www.youtube.com/watch?v=NeXQEJNWO5w
 
 All peripherals stuff (UI, Database, Framework) should be written as plugins to the Use Cases
 
+## Bash
+
+### Add up size of several files
+
+```bash
+ls -l | grep "2020-08-20" | awk '{s+=$5}END{print s}'
+```
+
 ## Mysql
 
 ### Indexing
